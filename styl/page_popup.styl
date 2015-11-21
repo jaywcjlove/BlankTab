@@ -1,0 +1,65 @@
+@import "_partial/reset"
+global-reset()
+
+$header_height = 43px
+
+header
+    height $header_height
+    line-height $header_height
+    width 280px
+    color #fff
+    text-align center
+    background-color #34495E
+    font-size 20px
+    font-weight bold
+
+#icon
+    width 64px
+    height 64px
+    background #738FFA
+    margin 20px auto 10px auto
+    overflow hidden
+    border-radius 13px
+    img 
+        width 100%
+        height 100%
+        display block
+article
+    margin 0 15px
+    #addTitle
+        display block
+        width 100%
+        height 32px
+        padding 0 10px 0 10px
+        border-radius 23px
+        outline none
+        border 1px solid #E1E1E1
+        font-size 14px
+        &:active
+            border 1px solid #333
+        &:focus
+            border 1px solid #333
+
+#addItem[disabled="disabled"]
+    background #BABABA
+    &:active 
+        background-color #BABABA
+    &:hover
+        background-color #BABABA
+    
+#addItem
+    border 0
+    display block
+    outline none
+    cursor pointer
+    color #fff
+    padding 0 30px
+    height 32px
+    margin 30px auto 10px auto
+    background-color #1E68B1
+    border-radius 32px
+    &:active 
+        background-color #003B75
+    &:hover
+        background-color #0081FF
+    
