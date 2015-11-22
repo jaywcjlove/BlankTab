@@ -7,6 +7,8 @@ if(storedata&&storedata.length>0){
     storageSave(maindata)
 }
 
+
+// 默认展示十条数据
 function storageSave(_data){
 
     var _maindata=[];
@@ -21,26 +23,19 @@ function storageSave(_data){
     creatElement(_maindata)
 }
 
+// 根据本地存储的数据生成节点信息
 function creatElement(_maindata){
     
     var html = '';
 
     for (var i = 0; i < _maindata.length; i++) {
-        
-        html += '<li class="zoomInDown animated"><a href="';
-        html += _maindata[i].url?_maindata[i].url:'';
-        html += '" title="'+_maindata[i].name+'">'
-        if(_maindata[i].bgColor){
-            html += '<span style="background:'+_maindata[i].bgColor+';">';
-        }else{
-            html += '<span style="background:#EAEAEA;">';
-        }
-        if(_maindata[i].ico){
-            html += '<img src="'+_maindata[i].ico+'" />';
-        }else{
-            html += _maindata[i].name[0]?_maindata[i].name[0]:"";
-        }
-        html += '</span><i>'+_maindata[i].name+'</i></a></li>';
+
+        html += temp('<li class="zoomInDown animated"><a href="$_URL$" title="$_name$"><span style="background:$_bgColor$;">$_content$</span><i>$_name$</i></a></li>',{
+            _URL:_maindata[i].url?_maindata[i].url:'',
+            _name:_maindata[i].name,
+            _bgColor:_maindata[i].bgColor?_maindata[i].bgColor:'#EAEAEA',
+            _content:_maindata[i].ico?'<img src="'+_maindata[i].ico+'" />':(_maindata[i].name[0]?_maindata[i].name[0]:"")
+        })
     };
     $('#iconList').append(html);
 
