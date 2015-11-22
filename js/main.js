@@ -6,7 +6,10 @@ if(storedata&&storedata.length>0){
 }else{
     storageSave(maindata)
 }
-
+// 屏蔽右键菜单
+document.oncontextmenu = function(){
+    return false;
+}
 
 // 默认展示十条数据
 function storageSave(_data){
