@@ -46,7 +46,7 @@ gulp.task('stylus',function(){
 
 gulp.task('script',function(){
 
-    gulp.src(['js/jQuery.3.0.0.min.js','js/database.js','js/store.js','js/main.js'])
+    gulp.src(['js/jQuery.3.0.0.min.js','js/template.simple.js','js/database.js','js/store.js','js/main.js'])
         .pipe(uglify().on('error',gutil.log))
         .pipe(concat('main.min.js').on('error',gutil.log))
         .pipe(gulp.dest('./build/js'));
