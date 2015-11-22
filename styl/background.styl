@@ -14,6 +14,10 @@ body
 
 $menu_width = 100px
 
+.shakeSlow
+    animation-duration: 200ms;
+    animation-iteration-count: infinite; 
+
 #main_nav_toggle
     display inline-block
     position absolute
@@ -130,6 +134,37 @@ $menu_width = 100px
         text-align center
         width 64px
         float left
+        div.close 
+            display block
+            height 18px
+            width 18px
+            position absolute
+            right 0px
+            margin -9px -9px 0 0
+            border-radius 50%
+            z-index 1
+            padding 3px
+            cursor pointer
+            background rgba(0, 0, 0, 0.36)
+            visibility hidden
+            transition all 0.6s
+            &:hover 
+                background #fff
+                &:before,&:after
+                    background red
+            &:after,&:before
+                content ''
+                display block
+                height 2px
+                background #fff
+                transform rotate(0deg)
+            &:after
+                transform: rotate(45deg);
+                margin -2px 0 0 0px
+            &:before
+                transform rotate(-45deg)
+                margin 5px 0 0 0
+                
         a 
             display inline-block
             line-height 12px
@@ -142,13 +177,13 @@ $menu_width = 100px
                     animation-duration 500ms                  /*动画持续时间*/
                     animation-iteration-count infinite        /*动画要重复次数*/
                     animation-direction alternate             /*动画执行方向，alternate 表示反复*/
-                i
+                i.name
                     text-shadow 0px 1px 2px rgb(0, 0, 0)
                     color #C3FFFD
                     font-weight bold
                     text-decoration none
                     
-        span,i
+        span,i.name
             display block
             color #fff
             font-size 12px
@@ -183,7 +218,7 @@ $menu_width = 100px
                                 
         span,span:before
             border-radius 100%
-        i
+        i.name
             padding 4px 0 0 0
             height 20px
             line-height 20px
