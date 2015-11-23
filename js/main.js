@@ -1,4 +1,3 @@
-
 var storedata = store("maindata");
 
 
@@ -21,24 +20,26 @@ if(storedata&&storedata.length>0){
 }
 
 // 屏蔽右键菜单 动画
-$('body').on('click',function(){
-    $('#iconList li a').removeClass('animated shakeSlow');
-    // $('#iconList li a').addClass('animated flipOutX');
-    $('#iconList li div.close').css({
-        "visibility": 'hidden'
-    });
+$('body').on('click',function(evn,e){
+    var $elm = $(evn.toElement).parent();
+    if(evn.toElement.tagName === 'DIV'&&evn.toElement.className === 'close'&&$elm.attr('tagName') === 'LI'){
+
+    }else{
+        $('#iconList li a').removeClass('animated shakeSlow');
+        $('#iconList li div.close').css({
+            "visibility": 'hidden'
+        });
+    }
 }).on('contextmenu',function(){
     $('#iconList li a').addClass('animated shakeSlow');
     $('#iconList li div.close').css({
         "visibility": 'inherit'
     }).on('click',function(){
-        
         var url = $(this).next().attr('href');
         if(url){
             $(this).parent().remove();
-            removeItem(url)
+            removeItem(url);
         }
-        
     })
     return false;
 })
