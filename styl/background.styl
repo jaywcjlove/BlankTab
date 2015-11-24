@@ -28,7 +28,8 @@ $menu_width = 100px
     input#tm
         display none
     section
-        position relative
+        position absolute
+        top 0
         transition all 0.6s
         z-index 999
     section 
@@ -96,6 +97,15 @@ $menu_width = 100px
         z-index 0
         .hidden
             opacity 0
+    .fuzzyBg
+        position absolute
+        background-image url($background_img) 
+        opacity 0
+        width 100%
+        height 100%
+        z-index 9
+        filter: blur(8px);
+
     input#tm:checked ~ section 
         transform translateX(($menu_width))
     input#tm:checked ~ .sidenav
@@ -120,15 +130,19 @@ $menu_width = 100px
         width 100%
         height 100%
         padding-left $menu_width
-        background-color #fff
+        // background-color #fff
+
         z-index 998
         opacity 1
         overflow auto
         .hidden
             opacity 1
             transition all 0.6s
+    input#tm:checked ~ .fuzzyBg
+        opacity 0.9
+        width 100%
+        height 100%
         
-
 
 // .popup div,& input
 //     display none
@@ -139,6 +153,9 @@ $menu_width = 100px
 //     display block
 // .popup input#about:checked ~ div.aboutCon
 //     display block
+.floatingLayer
+    position absolute
+    
 
 .iconList
     padding 20px
@@ -148,7 +165,7 @@ $menu_width = 100px
         margin 15px
         text-align center
         width 64px
-        float left
+        display inline-block
         div.close 
             display block
             height 18px
@@ -247,13 +264,29 @@ $menu_width = 100px
     h2
         font-size 18px
         font-weight bold    
-        color #3498db
+        color #2ECC71
+        
+        text-shadow 0 1px 2px #000
     p
         padding 8px 0
         color #34495e
         font-size 14px
         line-height 24px
+        text-shadow 0 1px 2px #000
+        color #fff
+        a
+            color #fff
+            text-shadow 0 1px 1px #000
+            
         
+// 添加应用
+.addItemCon
+    padding 40px
+    h2
+        font-size 18px
+        font-weight bold
+        color #fff
+        text-shadow 0 1px 1px #000
 
 
 
