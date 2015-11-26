@@ -13,6 +13,7 @@ body
         box-shadow 0 1px 30px #fff
 
 $menu_width = 100px
+$padding_width = 40px
 
 .shakeSlow
     animation-duration: 200ms;
@@ -103,7 +104,7 @@ $menu_width = 100px
         opacity 0
         width 100%
         height 100%
-        z-index 9
+        z-index -1
         filter: blur(8px);
 
     input#tm:checked ~ section 
@@ -140,8 +141,7 @@ $menu_width = 100px
             transition all 0.6s
     input#tm:checked ~ .fuzzyBg
         opacity 0.9
-        width 100%
-        height 100%
+        z-index 98
         
 
 // .popup div,& input
@@ -258,15 +258,18 @@ $menu_width = 100px
             font-style normal
             word-break break-all
 
-// 关于我们
-.aboutCon 
-    padding 40px
+
+// 关于我们 添加应用
+
+.aboutCon,.addItemCon
+    padding $padding_width
     h2
         font-size 18px
         font-weight bold    
         color #2ECC71
-        
         text-shadow 0 1px 2px #000
+        
+.aboutCon 
     p
         padding 8px 0
         color #34495e
@@ -279,14 +282,6 @@ $menu_width = 100px
             text-shadow 0 1px 1px #000
             
         
-// 添加应用
-.addItemCon
-    padding 40px
-    h2
-        font-size 18px
-        font-weight bold
-        color #fff
-        text-shadow 0 1px 1px #000
 
 
 
